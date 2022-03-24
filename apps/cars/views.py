@@ -1,10 +1,12 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 
 from .models import CarModel
 from .serializers import CarSerializer
 
 
 class CarListCreateView(ListCreateAPIView):
+    permission_classes = AllowAny
     serializer_class = CarSerializer
 
     def get_queryset(self):
@@ -26,6 +28,7 @@ class CarListCreateView(ListCreateAPIView):
 
 
 class CarReadUpdateDeleteView(RetrieveUpdateDestroyAPIView):
+    permission_classes = AllowAny
     queryset = CarModel.objects.all()
     serializer_class = CarSerializer
 

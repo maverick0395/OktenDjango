@@ -1,11 +1,14 @@
-from rest_framework.generics import ListCreateAPIView, CreateAPIView, DestroyAPIView
+from rest_framework.generics import CreateAPIView, DestroyAPIView, ListCreateAPIView
+from rest_framework.permissions import AllowAny
+
+from apps.cars.serializers import CarSerializer
 
 from .models import AutoParkModel
 from .serializers import AutoParkSerializer
-from apps.cars.serializers import CarSerializer
 
 
 class AutoParkListCreateView(ListCreateAPIView):
+    permission_classes = (AllowAny,)
     serializer_class = AutoParkSerializer
     queryset = AutoParkModel.objects.all()
 
