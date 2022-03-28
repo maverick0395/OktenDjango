@@ -12,13 +12,14 @@ UserModel: User = get_user_model()
 
 class UserSerializer(ModelSerializer):
     profile = ProfileSerializer()
+
     class Meta:
         model = UserModel
         fields = (
             'id', 'email', 'password', 'profile', 'is_active', 'is_staff', 'is_superuser', 'last_login', 'created_at', 'updated_at'
         )
         read_only_fields = (
-            'id', 'is_active' ,'is_staff', 'is_superuser', 'last_login', 'created_at', 'updated_at'
+            'id', 'is_active','is_staff', 'is_superuser', 'last_login', 'created_at', 'updated_at'
         )
 
         extra_kwargs = {

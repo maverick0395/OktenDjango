@@ -7,3 +7,9 @@ class ProfileSerializer(ModelSerializer):
     class Meta:
         model = ProfileModel
         exclude = ('user',)
+
+
+class AvatarSerializer(ModelSerializer):
+    class Meta:
+        model = ProfileModel
+        fields = ('avatar',)
