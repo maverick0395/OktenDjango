@@ -1,10 +1,8 @@
 import {useForm} from "react-hook-form";
-import {joiResolver} from "@hookform/resolvers/joi";
-import {userValidator} from "../../validators/user.validator";
-import css from './Register.module.css';
-import {useDispatch} from "react-redux";
-import {userService} from "../../services/user.service";
 import {useState} from "react";
+
+import {userService} from "../../services/user.service";
+import css from './Register.module.css';
 
 
 const Register = () => {
