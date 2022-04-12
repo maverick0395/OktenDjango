@@ -6,7 +6,7 @@ export const getAllAutoparks = createAsyncThunk(
     async(_, {rejectWithValue}) => {
         try {
             const autoparks = await autoparkService.getAll();
-            return autoparks
+            return autoparks.data
         } catch (e) {
             console.log(e.message)
         }

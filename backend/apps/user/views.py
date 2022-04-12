@@ -88,7 +88,6 @@ class UserListView(ListAPIView):
 
     def get_queryset(self):
         current_user_pk = self.request.user.pk
-        print(current_user_pk)
         user_list = UserModel.objects.exclude(pk=current_user_pk)
         return user_list
 

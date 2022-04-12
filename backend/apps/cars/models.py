@@ -6,7 +6,6 @@ from django.db import models
 from apps.autoparks.models import AutoParkModel
 
 
-# Create your models here.
 class CarModel(models.Model):
     class Meta:
         db_table = 'cars'

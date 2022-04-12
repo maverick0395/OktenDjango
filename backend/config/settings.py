@@ -36,16 +36,19 @@ AUTH_USER_MODEL = 'user.UserModel'
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+    'django_filters',
+    'django_celery_results',
 
+    'apps.core',
     'apps.autoparks',
     'apps.cars',
     'apps.profile',
@@ -89,7 +92,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DB_NAME'),
+        'NAME': os.environ.get('MYSQL_DATABASE'),
         'USER': os.environ.get('MYSQL_USER'),
         'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
         'HOST': os.environ.get('MYSQL_HOST'),
@@ -129,7 +132,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/drf-static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'storage')
 
@@ -137,5 +141,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'storage')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
